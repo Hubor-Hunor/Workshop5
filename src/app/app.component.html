@@ -1,0 +1,83 @@
+<main>
+  <button type="button" class="btn btn-warning" (click)="countCategory()">Count Category</button>
+  <button type="button" class="btn btn-warning" (click)="maxDiscount()">Max Discount</button>
+  <button type="button" class="btn btn-warning" (click)="priceLevel()">Price Level</button>
+  <div class="alert alert-primary alert-dismissible fade show" role="alert" *ngIf="selectedProduct.id !== 0">
+    <div class="details" >
+      <img id="thumbnail"  [src]="selectedProduct.thumbnail">
+      <div>ID - {{ selectedProduct.id }}</div>
+      <div>Thumbnail - {{ selectedProduct.title }}</div>
+      <div>Title - {{ selectedProduct.description }}</div>
+      <div>Price - {{ selectedProduct.price }}</div>
+      <div>Discount - {{ selectedProduct.discountPercentage }}</div>
+      <div>Rating - {{ selectedProduct.rating }}</div>
+      <div>Stock - {{ selectedProduct.stock }}</div>
+      <div>Brand - {{ selectedProduct.brand }}</div>
+      <div>Category - {{ selectedProduct.category }}</div>
+      <div>Comments:</div>
+      <div *ngFor="let comment of selectedProduct.comments">
+        <div class="input-group mb-3">
+          <span id="comment" class="input-group-text"><b>{{ comment.user.username }}:</b></span>
+          <textarea id="txt" [readonly]="true" class="form-control" [(ngModel)]="comment.body" aria-label="With textarea"></textarea>
+        </div>
+      </div>
+      <div class="upperContainer">
+        <div class="col">
+          <img [src]="selectedProduct.images[0]">
+        </div>
+        <div class="col-6">
+          <img [src]="selectedProduct.images[1]">
+        </div>
+        <div class="col">
+          <img [src]="selectedProduct.images[2]">
+        </div>
+      </div>
+      <div class="bottomContainer mt-5">
+        <div class="row img-responsive">
+          <div class="col">
+            <img [src]="selectedProduct.images[3]">
+          </div>
+          <div class="col-5 img-responsive">
+            <img [src]="selectedProduct.images[4]">
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="close()"></button>
+  </div>
+  <table class="table table-sm table-bordered table-hover table-fixed  m-4">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ID</th>
+        <th scope="col">Thumbnail</th>
+        <th scope="col">Title</th>
+        <th scope="col">Price</th>
+        <th scope="col">Discount Percentage</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Category</th>
+        <th scope="col">&nbsp;</th>
+        <th scope="col">&nbsp;</th>
+        <th scope="col">&nbsp;</th>
+      </tr>        
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of products" [ngClass]="addColor(p)">
+        <th scope="row">{{ p.id }}</th>
+        <td>{{ p.id }}</td>
+        <td><img [src]="p.thumbnail"/></td>
+        <td>{{ p.title }}</td>
+        <td>{{ p.price }}</td>
+        <td>{{ p.discountPercentage }}</td>
+        <td>{{ p.rating }}</td>
+        <td>{{ p.stock }}</td>
+        <td>{{ p.brand }}</td>
+        <td>{{ p.category }}</td>
+        <td><button type="button" class="btn btn-danger" (click)="deleteProduct(p)">DEL</button></td>
+        <td><button type="button" class="btn btn-info" (click)="select(p)">MORE</button></td>
+      </tr>
+    </tbody>
+  </table>
+</main>

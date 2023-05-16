@@ -1,0 +1,47 @@
+td img {
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+}
+td, th {
+    font-size: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+.details {
+    text-align: center;
+}
+.details div {
+    border-bottom: 2px solid black;
+}
+#thumbnail {
+    border-radius: 30px;
+    width: 120px;
+    height: 100px;
+}
+.upperContainer {
+    display: flex;
+}
+.upperContainer img {
+    border-radius: 25px;
+    width: 220px;
+    height: 150px;
+}
+.bottomContainer {
+    display: flex;
+}
+.bottomContainer img {
+    border-radius: 25px;
+    width: 250px;
+    height: 180px;
+    margin : 150px;
+}
+    #comment {
+        background-color: rgba(95, 204, 255, 0);
+        padding-left: 800px
+    }
+    #txt {
+        color: green;
+        padding-top: 30px;
+        background-color: rgba(95, 204, 255, 0);
+    }
